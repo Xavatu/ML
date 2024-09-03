@@ -206,7 +206,6 @@ class _ResNet(nn.Module):
         x = self.layer2(x)
         x = self.layer3(x)
         x = self.layer4(x)
-        assert tuple(x.shape)[2:] == (7, 7)
         x = self.adaptive_avg_pool(x)
         x = torch.flatten(x, 1)
         x = self.fc(x)
